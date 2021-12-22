@@ -1,4 +1,4 @@
-# bib-pm-back-end
+# sv-pm-back-end
 
 - ENV variables (See.env.example)
 
@@ -39,23 +39,23 @@ docker-compose up
 
 Seed the Database from the app migrations:
 ```
-docker exec -it bib-pm-backend npm run migrate
+docker exec -it sv-pm-backend npm run migrate
 ```
 ## executing commands in the containers 
 
-The bib-pm-backend image doesn't have a shell enabled. You can run npm commands using: 
+The sv-pm-backend image doesn't have a shell enabled. You can run npm commands using: 
 ```
-docker exec -it bib-pm-backend npm run [command]
+docker exec -it sv-pm-backend npm run [command]
 ```
 
 You can get a shell in the MySQL container by running:
 
 ```
-docker exec -it bib-db /bin/bash
+docker exec -it sv-db /bin/bash
 ```
 
 It's possible to run a MySQL client image to connect to the MySQL server container:
 
 ```
-docker run -it --network bib-pm-back-end_default --rm mysql mysql -hbib-db -uroot -ppassword
+docker run -it --network sv-pm-back-end_default --rm mysql mysql -hsv-db -uroot -ppassword
 ```# node-express-project-manager

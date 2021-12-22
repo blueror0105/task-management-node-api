@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   mysqldb:
-    container_name: bib-db
+    container_name: sv-db
     image: mysql
     restart: always
     env_file: ./.env
@@ -17,17 +17,17 @@ services:
       - ./db/backup/files/:/data_backup/data
 
   app:
-    container_name: bib-pm-backend
+    container_name: sv-pm-backend
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: bib-pm-app
+    image: sv-pm-app
     env_file: ./.env
     ports:
       - 3000:3000
     volumes:
-      - ./:/home/app/bib-pm-backend
-      - /home/app/bib-pm-backend/node_modules
+      - ./:/home/app/sv-pm-backend
+      - /home/app/sv-pm-backend/node_modules
     depends_on:
       - mysqldb
     stdin_open: true
